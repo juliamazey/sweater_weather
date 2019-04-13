@@ -18,7 +18,13 @@ class ForecastFacade
   def weather_data
     location = get_location
     forecast_data = get_forecast_data(location.latitude, location.longitude)
-    Weather.new(forecast_data)
+  end
+
+  def weather_today
+    city = @address.split(",").first.capitalize
+    state = @address.split(",").last.upcase
+    address = "#{city}, #{state}"
+    Weather.new(weather_data, address)
   end
 
   def get_forecast_data(latitude, longitude)

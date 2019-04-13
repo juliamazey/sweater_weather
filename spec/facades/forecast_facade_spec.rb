@@ -27,11 +27,5 @@ describe ForecastFacade do
       forecast_data = @facade.get_forecast_data(39.7392358, -104.990251)
       expect(forecast_data).to have_key(:currently)
     end
-
-    it '#weather_data' do
-      weather_data = @facade.weather_data
-      expect(weather_data).to be_a(Weather)
-      expect(weather_data.date_time).to eq(DateTime.now.strftime("%I:%M %p, %d/%m"))
-    end
   end
 end

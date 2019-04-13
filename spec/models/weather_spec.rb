@@ -4,7 +4,7 @@ describe Weather do
   before :each do
     file = File.open('./fixtures/forecast_data.json')
     data = JSON.parse(file.read, symbolize_names:true)
-    @weather = Weather.new(data)
+    @weather = Weather.new(data, 'Denver, CO')
   end
 
   it 'exists' do
