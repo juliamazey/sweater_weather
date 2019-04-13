@@ -22,7 +22,7 @@ class Weather
     @humidity = forecast_data[:currently][:humidity]
     @visibility = forecast_data[:currently][:visibility]
     @uv_index = forecast_data[:currently][:uvIndex]
-    @date_time = DateTime.now.strftime("%I:%M %p, %d/%m")
+    @date_time = Time.at(forecast_data[:currently][:time]).strftime("%I:%M %p, %d/%m")
     @tonight_summary = forecast_data[:daily][:summary]
     @today_summary = forecast_data[:daily][:data][0][:summary]
     # @rain_probability = forecast_data[:daily][:data][0][:precipProbability]
