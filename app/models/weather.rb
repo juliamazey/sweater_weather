@@ -10,7 +10,8 @@ class Weather
               :today_summary,
               :location,
               :max_temp,
-              :min_temp
+              :min_temp,
+              :address
 
   def initialize(forecast_data, address)
     @address = address

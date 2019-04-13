@@ -27,5 +27,13 @@ describe ForecastFacade do
       forecast_data = @facade.get_forecast_data(39.7392358, -104.990251)
       expect(forecast_data).to have_key(:currently)
     end
+
+    it '#weather_today' do
+      expect(@facade.weather_today).to be_a(Weather)
+    end
+
+    it '#weather hourly' do
+      expect(@facade.weather_hourly).to be_a(WeatherHourly)
+    end
   end
 end
