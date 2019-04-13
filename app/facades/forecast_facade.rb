@@ -15,9 +15,15 @@ class ForecastFacade
     end
   end
 
+  def weather_data
+    location = get_location
+    forecast_data = get_forecast_data(location.latitude, location.longitude)
+    Weather.new(forecast_data)
+  end
+
   def get_forecast_data(latitude, longitude)
-    dark_sky_service = DarkSkyService.new(latitude, longitude)
-    dark_sky_service.get_forecast
+    dark_sky_service = DarkSkyService.new
+    dark_sky_service.get_forecast(latitude, longitude)
   end
 
 end
