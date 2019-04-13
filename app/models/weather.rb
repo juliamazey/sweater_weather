@@ -6,7 +6,8 @@ class Weather
               :humidity,
               :visibility,
               :uv_index,
-              :date_time
+              :date_time,
+              :tonight_summary
 
   def initialize(forecast_data)
     @id = 1
@@ -18,6 +19,7 @@ class Weather
     @uv_index = forecast_data[:currently][:uvIndex]
     @date_time = DateTime.now.strftime("%I:%M %p, %d/%m")
     @tonight_summary = forecast_data[:daily][:summary]
+    # binding.pry
     @today_summary = forecast_data[:daily][:data][0][:summary]
     @rain_probability = forecast_data[:daily][:data][0][:precipProbability]
     @max_temp = forecast_data[:daily][:data][0][:temperatureMax]
