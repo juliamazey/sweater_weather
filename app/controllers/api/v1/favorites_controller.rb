@@ -4,10 +4,10 @@ class Api::V1::FavoritesController < ApplicationController
     user = User.find_by(api_key: favorites_params[:api_key])
     if user
       facade = FavoritesFacade.new(user, favorites_params[:location])
-      facade.create_favorite
-      render status: 201
+      fav = facade.create_favorite
+      render json: { }, status: 201
     else
-      # render :404
+      render json: { }, status: 401
     end
   end
 

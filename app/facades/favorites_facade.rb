@@ -6,8 +6,7 @@ class FavoritesFacade < LocationFacade
   end
 
   def create_favorite
-    location = get_location
-    favorite = Favorite.find_or_create_by(location, @user)
+    Favorite.create(user: @user, location: get_location)
   end
 
 end
