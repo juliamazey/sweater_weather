@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
      user = User.new(user_params)
      user.api_key = get_key
      if user.save
-       render json: { "api_key": "#{user.api_key}"}
+       render json: { "api_key": "#{user.api_key}"}, status: 201
      end
    end
 

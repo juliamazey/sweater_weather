@@ -14,8 +14,10 @@ describe 'Sessions API' do
                                       }
 
     expect(response).to be_successful
+    expect(response.status).to eq(200)
 
     key = JSON.parse(response.body)
-    expect(key).to eq(user.api_key)
+
+    expect(key["api_key"]).to eq(user.api_key)
   end
 end

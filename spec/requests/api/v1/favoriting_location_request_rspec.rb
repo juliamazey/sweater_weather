@@ -12,7 +12,7 @@ describe 'Favorites API' do
                         )
 
     post '/api/v1/favorites', params: {location: "Denver, CO",
-                                        api_key: api_key,
+                                        api_key: api_key
                                         }
 
     expect(response).to be_successful
