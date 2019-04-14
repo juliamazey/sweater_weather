@@ -13,6 +13,7 @@ class ForecastFacade
     if location.nil?
       location = Location.create_location(@address, geo_data)
     end
+    return location
   end
 
   def weather_data
