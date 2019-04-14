@@ -42,4 +42,15 @@ class ForecastFacade
     end
     return weather_h
   end
+
+  def weather_weekly
+    data = weather_data[:daily][:data]
+    weather_w = []
+    count = 1
+    5.times do
+      weather_w << WeatherWeekly.new(data[count], (count))
+      count += 1
+    end
+    return weather_w
+  end
 end

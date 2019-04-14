@@ -11,10 +11,13 @@ class Weather
               :location,
               :max_temp,
               :min_temp,
-              :address
+              :address,
+              :icon,
+              :id
 
   def initialize(forecast_data, address)
     @address = address
+    @icon = forecast_data[:currently][:icon]
     @timezone = forecast_data[:timezone].split("/").first
     @summary = forecast_data[:currently][:summary]
     @temperature = forecast_data[:currently][:temperature]
@@ -25,9 +28,9 @@ class Weather
     @date_time = Time.at(forecast_data[:currently][:time]).strftime("%I:%M %p, %d/%m")
     @tonight_summary = forecast_data[:daily][:summary]
     @today_summary = forecast_data[:daily][:data][0][:summary]
-    # @rain_probability = forecast_data[:daily][:data][0][:precipProbability]
     @max_temp = forecast_data[:daily][:data][0][:temperatureMax]
     @min_temp = forecast_data[:daily][:data][0][:temperatureMin]
+    @id = 1
   end
 
 end
