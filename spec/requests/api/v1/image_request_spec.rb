@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Unsplash API' do
+describe 'Flickr API' do
   it 'sends background image of a place' do
 
     get '/api/v1/backgrounds?location=denver,co'
