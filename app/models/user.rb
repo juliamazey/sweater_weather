@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
 
-  validates_presence_of :email, uniqueness: true, presence: true, require: true
-  validates_presence_of :api_key, uniqueness: true, presence: true, require: true
-  validates_presence_of :password, require: true
+  validates_presence_of :email
+  validates_uniqueness_of :email
+  validates_presence_of :api_key
+  validates_uniqueness_of :api_key
+  validates_presence_of :password
 end
