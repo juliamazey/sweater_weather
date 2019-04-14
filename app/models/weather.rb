@@ -18,7 +18,7 @@ class Weather
   def initialize(forecast_data, address)
     @address = address
     @icon = forecast_data[:currently][:icon]
-    @timezone = forecast_data[:timezone].split("/").first
+    @location = forecast_data[:timezone].split("/").first
     @summary = forecast_data[:currently][:summary]
     @temperature = forecast_data[:currently][:temperature]
     @apparent_temperature = forecast_data[:currently][:apparentTemperature]
