@@ -20,5 +20,4 @@ class LocationFacade
     @flickr_service ||= FlickrService.new
     @flickr_service.get_url(geo_data)[:photos][:photo][0]
   end
-
 end

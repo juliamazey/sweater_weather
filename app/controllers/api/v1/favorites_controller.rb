@@ -1,7 +1,7 @@
 class Api::V1::FavoritesController < ApplicationController
 
   def create
-    user = User.find_by(api_key: favorites_params[:api_key])
+    user = find_user(favorites_params)
     if user
       facade = FavoritesFacade.new(user, favorites_params[:location])
       fav = facade.create_favorite
@@ -11,12 +11,26 @@ class Api::V1::FavoritesController < ApplicationController
     end
   end
 
+  def index
+    user = find_user(favorites_params)
+    if user
+      favorites = all_favorites(user)
+      render json: {today: WeatherTodaySerializer.new(favorites)}
+    else
+      render json: { }, status: 401
+  end
+
   private
 
   def favorites_params
     params.permit(:location, :api_key)
   end
 
-
+  def all_favorites(user)
+    user.locations.map do |location|
+      facade = ForecastFacade.new(location.address)
+      facade.weather_today
+    end
+  end
 
 end
