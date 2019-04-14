@@ -3,6 +3,8 @@ class Location < ApplicationRecord
   validates_presence_of :latitude
   validates_presence_of :longitude
   validates_presence_of :image_url
+  has_many :favorites
+  has_many :users, through: :favorites
 
   def self.create_location(address, geo_data, url)
     Location.create(address: address,
