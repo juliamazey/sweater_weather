@@ -1,0 +1,25 @@
+{
+    "photos": {
+        "page": 1,
+        "pages": 5140,
+        "perpage": 1,
+        "total": "5140",
+        "photo": [
+            {
+                "id": "47499079331",
+                "owner": "66944894@N06",
+                "secret": "34d03d300e",
+                "server": "7830",
+                "farm": 8,
+                "title": "Bears",
+                "ispublic": 1,
+                "isfriend": 0,
+                "isfamily": 0,
+                "url_o": "https://live.staticflickr.com/7830/47499079331_efb11bea63_o.jpg",
+                "height_o": "2385",
+                "width_o": "3577"
+            }
+        ]
+    },
+    "stat": "ok"
+}
