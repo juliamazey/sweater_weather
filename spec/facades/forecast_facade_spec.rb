@@ -37,5 +37,11 @@ describe ForecastFacade do
       expect(hourly).to be_a(Array)
       expect(hourly.count).to eq(8)
     end
+
+    it '#weather_weekly' do
+      weekly = @facade.weather_weekly
+      expect(hourly).to be_a(Array)
+      expect(hourly.count).to eq(5)
+    end
   end
 end
