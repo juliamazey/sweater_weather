@@ -15,6 +15,7 @@ class WeatherTodaySerializer
              :min_temp,
              :address,
              :icon,
-             :id
+             :id,
+             :address
 
 end
