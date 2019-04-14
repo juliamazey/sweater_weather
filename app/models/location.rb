@@ -13,7 +13,4 @@ class Location < ApplicationRecord
                     image_url: url
                     )
   end
-
-
-
 end
