@@ -8,7 +8,7 @@ class ForecastFacade
     geo_service.get_lat_long(@address)[:results][0][:geometry][:location]
   end
 
-  def get_location()
+  def get_location
     location = Location.find_by(address: @address)
     if location.nil?
       location = Location.create_location(@address, geo_data)
@@ -32,4 +32,14 @@ class ForecastFacade
     dark_sky_service.get_forecast(latitude, longitude)
   end
 
+  def weather_hourly
+    data = weather_data[:hourly][:data]
+    weather_h = []
+    count = 0
+    8.times do
+      weather_h << WeatherHourly.new(data[count], (count + 1))
+      count += 1
+    end
+    return weather_h
+  end
 end

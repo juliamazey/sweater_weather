@@ -33,7 +33,9 @@ describe ForecastFacade do
     end
 
     it '#weather hourly' do
-      expect(@facade.weather_hourly).to be_a(WeatherHourly)
+      hourly = @facade.weather_hourly
+      expect(hourly).to be_a(Array)
+      expect(hourly.count).to eq(8)
     end
   end
 end
