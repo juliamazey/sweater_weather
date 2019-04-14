@@ -61,4 +61,25 @@ describe 'Favorites API' do
     expect(response.status).to eq(401)
   end
 
+  it 'can remove a favorite location' do
+
+    delete '/api/v1/favorites', params: {location: "Miami, FL",
+                                         api_key: @api_key
+                                         }
+
+    expect(response).to be_successful
+    fav = JSON.parse(response.body, symbolize_names: true)
+    expect(fav[:today][:data][0][:attributes][:address]).to_not eq("Miami,  FL")
+    expect(fav[:today][:data][0][:attributes]).to have_key(:temperature)
+  end
+
+
+  it 'will also return 401 if no valid API key' do
+
+    delete '/api/v1/favorites', params: {location: "Miami, FL",
+                                         api_key: SecureRandom.urlsafe_base64}
+    expect(response).to_not be_successful
+    expect(response.status).to eq(401)
+  end
+
 end

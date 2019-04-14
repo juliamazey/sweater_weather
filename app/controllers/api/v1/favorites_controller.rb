@@ -14,10 +14,24 @@ class Api::V1::FavoritesController < ApplicationController
   def index
     user = find_user(favorites_params)
     if user
-      favorites = all_favorites(user)
+      facade = FavoritesFacade.new(user, favorites_params[:location])
+      favorites = facade.all_favorites(user)
       render json: {today: WeatherTodaySerializer.new(favorites)}
     else
       render json: { }, status: 401
+    end
+  end
+
+  def destroy
+    user = find_user(favorites_params)
+    if user
+      facade = FavoritesFacade.new(user, favorites_params[:location])
+      facade.remove_favorite
+      favorites = facade.all_favorites(user)
+      render json: {today: WeatherTodaySerializer.new(favorites)}
+    else
+      render json: { }, status: 401
+    end
   end
 
   private
@@ -26,11 +40,6 @@ class Api::V1::FavoritesController < ApplicationController
     params.permit(:location, :api_key)
   end
 
-  def all_favorites(user)
-    user.locations.map do |location|
-      facade = ForecastFacade.new(location.address)
-      facade.weather_today
-    end
-  end
+
 
 end
