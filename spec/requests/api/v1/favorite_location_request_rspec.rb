@@ -53,4 +53,12 @@ describe 'Favorites API' do
     expect(fav[:today][:data][0][:attributes][:address]).to eq("Miami,  FL")
     expect(fav[:today][:data][0][:attributes]).to have_key(:temperature)
   end
+
+  it 'also returns 401 if no valid API key' do
+
+    get '/api/v1/favorites', params: {api_key: SecureRandom.urlsafe_base64}
+    expect(response).to_not be_successful
+    expect(response.status).to eq(401)
+  end
+
 end

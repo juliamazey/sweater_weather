@@ -13,8 +13,11 @@ class Api::V1::FavoritesController < ApplicationController
 
   def index
     user = find_user(favorites_params)
-    favorites = all_favorites(user)
-    render json: {today: WeatherTodaySerializer.new(favorites)}
+    if user
+      favorites = all_favorites(user)
+      render json: {today: WeatherTodaySerializer.new(favorites)}
+    else
+      render json: { }, status: 401
   end
 
   private
