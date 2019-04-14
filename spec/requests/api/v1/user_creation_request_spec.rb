@@ -9,7 +9,8 @@ describe 'User API' do
                                   }
 
     expect(response).to be_successful
-
+    expect(response.status).to eq(201)
+    
     key = JSON.parse(response.body)
   end
 end

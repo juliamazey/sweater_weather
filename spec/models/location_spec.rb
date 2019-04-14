@@ -9,6 +9,11 @@ RSpec.describe Location, type: :model do
     it { should validate_presence_of(:image_url) }
   end
 
+  describe 'relationships' do
+    it { should have_many :favorites }
+    it { should have_many(:users).through(:favorites) }
+  end
+
   describe 'class methods' do
     it '.create_location' do
       address = 'denver,co'

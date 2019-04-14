@@ -6,4 +6,8 @@ class User < ApplicationRecord
   validates_presence_of :api_key
   validates_uniqueness_of :api_key
   validates_presence_of :password
+
+  has_many :favorites
+  has_many :locations, through: :favorites
+
 end
