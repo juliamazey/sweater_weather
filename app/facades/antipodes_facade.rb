@@ -27,6 +27,4 @@ class AntipodesFacade < LocationFacade
     @amypode_service ||= AmypodeService.new
   end
 
-
-
 end

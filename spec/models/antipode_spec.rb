@@ -3,7 +3,6 @@ require 'rails_helper'
 describe Antipode do
   before :each do
     data = {:id=>"1", :summary=>"Clear", :temp=>60.29, :location=>"America/La_Paz"}
-
     @antipode = Antipode.new(data, "hongkong")
   end
 
@@ -18,6 +17,5 @@ describe Antipode do
     expect(@antipode.temp).to eq(60.29)
     expect(@antipode.search_location).to eq('Hongkong')
   end
-
 
 end
