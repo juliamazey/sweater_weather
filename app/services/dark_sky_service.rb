@@ -18,7 +18,7 @@ class DarkSkyService
   end
 
   def create_antipode(data, address)
-    Antipode.new(data, address)
+    [Antipode.new(data, address)]
   end
 
 end

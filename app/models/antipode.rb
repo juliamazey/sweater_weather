@@ -13,11 +13,6 @@ class Antipode
     @search_location = address.capitalize
   end
 
-  def attributes
-    { location_name: @location_name,
-      forecast: forecast }
-  end
-
   def forecast
     { summary: @summary, current_temperature: @temp}
   end
