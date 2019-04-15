@@ -5,7 +5,22 @@ class FlickrService
   end
 
   def response(geo_data)
-    conn.get("/services/rest/?method=flickr.photos.search&api_key=#{ENV['FLICKR_KEY']}&tags=sun,snow,nature,green,winter,trees,lake&accuracy=11&safe_search=1&lat=#{geo_data[:lat]}&lon=#{geo_data[:lng]}&format=json&nojsoncallback=1&per_page=1&page=1&media=photos&extras=url_o")
+    conn.get do |req|
+      req.url '/services/rest/'
+      req.params['method'] = 'flickr.photos.search'
+      req.params['api_key'] = ENV['FLICKR_KEY']
+      req.params['tags'] = 'sun,snow,nature,green,winter,trees,lake'
+      req.params['accuracy'] = 11
+      req.params['safe_search'] = 1
+      req.params['lat'] = geo_data[:lat]
+      req.params['lon'] = geo_data[:lng]
+      req.params['format'] = 'json'
+      req.params['nojsoncallback'] = 1
+      req.params['per_page'] = 1
+      req.params['page'] = 1
+      req.params['media'] = 'photos'
+      req.params['extras'] = 'url_o'
+    end
   end
 
   def conn
