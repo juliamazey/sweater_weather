@@ -19,7 +19,7 @@ class FlickrService
       req.params['per_page'] = 1
       req.params['page'] = 1
       req.params['media'] = 'photos'
-      req.params['extras'] = 'url_o'
+      req.params['extras'] = 'url_c'
     end
   end
 

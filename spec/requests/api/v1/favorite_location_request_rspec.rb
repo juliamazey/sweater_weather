@@ -4,7 +4,7 @@ describe 'Favorites API' do
   before :each do
     @user = create(:user)
     @location_1, @location_2 = create_list(:location, 2)
-    @favorite_1 = create(:favorite, uscder: @user, location: @location_1)
+    @favorite_1 = create(:favorite, user: @user, location: @location_1)
     @favorite_2 = create(:favorite, user: @user, location: @location_2)
   end
 
@@ -27,11 +27,14 @@ describe 'Favorites API' do
   end
 
   it 'sends a list of favorite locations' do
+    file = File.open('./fixtures/favorites_example.json')
+    result = JSON.parse(file.read, symbolize_names:true)
 
     get '/api/v1/favorites', params: {api_key: @user.api_key}
-
     expect(response).to be_successful
-    fav = JSON.parse(response.body, symbolize_names: true)
+
+    fav = JSON.parse(response.body, symbolize_names:true)
+
     address = fav[:today][:data][0][:attributes][:address].split(",").first
 
     expect(address).to eq(@user.locations.first.address)

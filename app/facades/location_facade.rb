@@ -6,7 +6,7 @@ class LocationFacade
   def get_location
     location = Location.find_by(address: @address)
     if location.nil?
-      location = Location.create_location(@address, geo_data, get_image[:url_o])
+      location = Location.create_location(@address, geo_data, get_image[:url_c])
     end
     return location
   end
