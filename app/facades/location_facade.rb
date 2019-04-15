@@ -20,4 +20,8 @@ class LocationFacade
     @flickr_service ||= FlickrService.new
     @flickr_service.get_url(geo_data)[:photos][:photo][0]
   end
+
+  def dark_sky_service
+    @dark_sky_service ||= DarkSkyService.new
+  end
 end
