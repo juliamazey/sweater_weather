@@ -3,8 +3,9 @@ class AntipodesFacade < LocationFacade
   def get_antipodes
     data = service_1.find_antipodes(get_location)[:data]
     lat_long = data[:attributes]
-    data[:attributes] = service_2.get_forecast(lat_long[:lat], lat_long[:long])[:currently]
-    binding.pry
+    result = service_2.get_forecast(lat_long[:lat], lat_long[:long])
+    data[:attributes] = result[:currently]
+    data[:location] = result[:timezone]
 # service_2.create_antipode(data, @address)
   end
 

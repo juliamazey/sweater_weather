@@ -4,6 +4,7 @@ describe Antipode do
   before :each do
     data = {:id=>"1",
             :type=>"antipode",
+            :location=> 'America/La_Paz',
             :attributes=>
                   {:time=>1555344060,
                    :summary=>"Clear",
@@ -34,6 +35,8 @@ describe Antipode do
     expect(@antipode.type).to eq('antipode')
     expect(@antipode.location_name).to eq("La Paz")
     expect(@antipode.forecast).to eq({summary: "Clear", current_temperature: 57.96})
-    expect(@antipode.search_location).to eq('Hong Kong')
+    expect(@antipode.search_location).to eq('Hongkong')
   end
+
+
 end
