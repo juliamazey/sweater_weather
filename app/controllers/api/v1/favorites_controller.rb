@@ -3,8 +3,7 @@ class Api::V1::FavoritesController < ApplicationController
   def create
     user = find_user
     if user
-      facade = FavoritesFacade.new(user, favorites_params[:location])
-      fav = facade.create_favorite
+      FavoritesFacade.new(user, favorites_params[:location]).create_favorite
       render json: { }, status: 201
     else
       render json: { }, status: 401
@@ -15,8 +14,7 @@ class Api::V1::FavoritesController < ApplicationController
     user = find_user
     if user
       facade = FavoritesFacade.new(user, favorites_params[:location])
-      favorites = facade.all_favorites(user)
-      render json: {today: WeatherTodaySerializer.new(favorites)}
+      render json: {today: WeatherTodaySerializer.new(facade.all_favorites(user))}
     else
       render json: { }, status: 401
     end
@@ -25,10 +23,8 @@ class Api::V1::FavoritesController < ApplicationController
   def destroy
     user = find_user
     if user
-      facade = FavoritesFacade.new(user, favorites_params[:location])
-      facade.remove_favorite
-      favorites = facade.all_favorites(user)
-      render json: {today: WeatherTodaySerializer.new(favorites)}
+      facade = FavoritesFacade.new(user, favorites_params[:location]).remove_favorite
+      render json: {today: WeatherTodaySerializer.new(facade.all_favorites(user))}
     else
       render json: { }, status: 401
     end
@@ -43,7 +39,5 @@ class Api::V1::FavoritesController < ApplicationController
   def find_user
     user = User.find_by(api_key: favorites_params[:api_key])
   end
-
-
 
 end

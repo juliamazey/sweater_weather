@@ -1,25 +1,24 @@
 class AntipodesFacade < LocationFacade
 
   def get_antipodes
-    data = create_data(result_1, result_2)
-    dark_sky_service.create_antipode(data, @address)
+    [Antipode.new(create_data, @address)]
   end
 
-  def create_data(result_1, result_2)
+  def create_data
     data = {}
-    data[:id] = result_1[:id]
-    data[:summary] = result_2[:currently][:summary]
-    data[:temp] = result_2[:currently][:temperature]
-    data[:location] = result_2[:timezone]
+    data[:id] = antipode[:id]
+    data[:summary] = forecast[:currently][:summary]
+    data[:temp] = forecast[:currently][:temperature]
+    data[:location] = forecast[:timezone]
     return data
   end
 
-  def result_1
+  def antipode
     amypode_service.find_antipodes(get_location)[:data]
   end
 
-  def result_2
-    lat_long = result_1[:attributes]
+  def forecast
+    lat_long = antipode[:attributes]
     dark_sky_service.get_forecast(lat_long[:lat], lat_long[:long])
   end
 

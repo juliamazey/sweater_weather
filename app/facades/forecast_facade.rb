@@ -1,12 +1,11 @@
 class ForecastFacade < LocationFacade
 
   def weather_data
-    location = get_location
-    forecast_data = get_forecast_data(location.latitude, location.longitude)
+    @weather_data ||= get_forecast_data(get_location.latitude, get_location.longitude)
   end
 
   def get_forecast_data(latitude, longitude)
-    dark_sky_service.get_forecast(latitude, longitude)
+    @get_forecast_data ||= dark_sky_service.get_forecast(latitude, longitude)
   end
 
   def weather_today
@@ -17,24 +16,18 @@ class ForecastFacade < LocationFacade
   end
 
   def weather_hourly(limit = 8)
-    data = weather_data[:hourly][:data]
-    weather_h = []
     count = 0
-    limit.times do
-      weather_h << WeatherHourly.new(data[count], (count + 1))
+    limit.times.map do
       count += 1
+      WeatherHourly.new(weather_data[:hourly][:data][count], (count))
     end
-    return weather_h
   end
 
   def weather_weekly(limit = 5)
-    data = weather_data[:daily][:data]
-    weather_w = []
-    count = 1
-    limit.times do
-      weather_w << WeatherWeekly.new(data[count], (count))
+    count = 0
+    limit.times.map do
       count += 1
+      WeatherWeekly.new(weather_data[:daily][:data][count], (count))
     end
-    return weather_w
   end
 end
