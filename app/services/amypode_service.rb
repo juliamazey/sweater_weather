@@ -2,9 +2,6 @@ class AmypodeService
 
   def find_antipodes(location)
     result = JSON.parse(response(location).body, symbolize_names: true)
-    geo_data = result[:data][:attributes]
-    
-
   end
 
   def response(location)

@@ -1,21 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/controllers/api/v1/antipodes_controller.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null
-      ],
       "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/facades/antipodes_facade.rb": [
         1,
         null,
@@ -23,6 +8,8 @@
         1,
         1,
         1,
+        1,
+        null,
         null,
         null,
         1,
@@ -38,7 +25,7 @@
       "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/facades/location_facade.rb": [
         1,
         1,
-        1,
+        2,
         null,
         null,
         1,
@@ -65,9 +52,6 @@
         null,
         1,
         1,
-        1,
-        null,
-        null,
         null,
         null,
         1,
@@ -185,6 +169,10 @@
         1,
         1,
         null,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         null
@@ -433,6 +421,11 @@
         0,
         0
       ],
+      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/controllers/application_controller.rb": [
+        0,
+        null,
+        0
+      ],
       "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/controllers/api/v1/favorites_controller.rb": [
         0,
         null,
@@ -520,6 +513,16 @@
         null,
         0
       ],
+      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/controllers/api/v1/antipodes_controller.rb": [
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0
+      ],
       "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/controllers/api/v1/sessions_controller.rb": [
         0,
         null,
@@ -565,6 +568,6 @@
         0
       ]
     },
-    "timestamp": 1555343152
+    "timestamp": 1555344242
   }
 }
