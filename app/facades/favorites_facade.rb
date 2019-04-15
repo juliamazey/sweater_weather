@@ -15,8 +15,7 @@ class FavoritesFacade < LocationFacade
 
   def all_favorites(user)
     user.locations.map do |location|
-      facade = ForecastFacade.new(location.address)
-      facade.weather_today
+      ForecastFacade.new(location.address).weather_today
     end
   end
 

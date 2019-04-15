@@ -10,4 +10,14 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :locations, through: :favorites
 
+  def self.create_new(user_params)
+    user = User.new(user_params)
+    user.api_key = self.get_key
+    return user
+  end
+
+  def self.get_key
+    SecureRandom.urlsafe_base64
+  end
+
 end
