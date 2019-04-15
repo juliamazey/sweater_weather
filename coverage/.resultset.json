@@ -1,6 +1,53 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/services/amypode_service.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/models/location.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/mailers/application_mailer.rb": [
         0,
         0,
@@ -30,24 +77,6 @@
         0
       ],
       "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/models/favorite.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/models/location.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -105,11 +134,6 @@
         0,
         0,
         null,
-        0
-      ],
-      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/models/application_record.rb": [
-        0,
-        0,
         0
       ],
       "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/models/user.rb": [
@@ -206,6 +230,19 @@
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        null,
+        0
+      ],
+      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/facades/antipodes_facade.rb": [
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
         0,
         0,
         0,
@@ -385,6 +422,16 @@
         null,
         0
       ],
+      "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/controllers/api/v1/antipodes_controller.rb": [
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0
+      ],
       "/Users/juliamarcooteros/turing/3module/projects/sweater_weather/app/controllers/api/v1/sessions_controller.rb": [
         0,
         null,
@@ -509,6 +556,6 @@
         0
       ]
     },
-    "timestamp": 1555341013
+    "timestamp": 1555342194
   }
 }
