@@ -5,7 +5,10 @@ class DarkSkyService
   end
 
   def response(lat, long)
-    conn.get("/forecast/#{ENV['DARK_SKY_API']}/#{lat},#{long}?exclude=[minutely,flags]")
+    conn.get do |req|
+      req.url "/forecast/#{ENV['DARK_SKY_API']}/#{lat},#{long}"
+      req.params['exclude'] = '[minutely,flags]'
+    end
   end
 
   def conn

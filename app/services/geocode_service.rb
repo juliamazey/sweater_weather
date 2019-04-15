@@ -5,7 +5,11 @@ class GeocodeService
   end
 
   def response(address)
-    conn.get("/maps/api/geocode/json?address=#{address}&key=#{ENV['GEOCODING_API']}")
+    conn.get do |req|
+      req.url '/maps/api/geocode/json'
+      req.params['address'] = address
+      req.params['key'] = ENV['GEOCODING_API']
+    end
   end
 
   def conn
