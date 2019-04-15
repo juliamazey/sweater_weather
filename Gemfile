@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'fast_jsonapi'
 gem 'figaro'
+gem 'faker'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -47,6 +48,9 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'awesome_print'
+  gem "factory_bot_rails"
+  gem 'simplecov'
 
 end
 

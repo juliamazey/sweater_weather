@@ -2,13 +2,12 @@ require 'rails_helper'
 
 describe FavoritesFacade do
   before :each do
-    @user = User.create!(email: "whatever@example.com",
-                        password: "password",
-                        password_confirmation: "password",
-                        api_key: SecureRandom.urlsafe_base64
-                        )
     @address = 'denver,co'
+    @user = create(:user)
     @facade = FavoritesFacade.new(@user, @address)
+    @location_1, @location_2 = create_list(:location, 2)
+    @favorite_1 = create(:favorite, user: @user, location: @location_1)
+    @favorite_2 = create(:favorite, user: @user, location: @location_2)
   end
   it 'exists' do
     expect(@facade).to be_a(FavoritesFacade)
@@ -21,6 +20,11 @@ describe FavoritesFacade do
 
       expect(favorite.user).to eq(@user)
       expect(favorite.location.address).to eq(@address)
+    end
+
+    it '#all_favorites' do
+      expect(@facade.all_favorites(@user)).to be_a(Array)
+      expect(@facade.all_favorites(@user).first).to be_a(Weather)
     end
   end
 end
