@@ -6,8 +6,7 @@ class ForecastFacade < LocationFacade
   end
 
   def get_forecast_data(latitude, longitude)
-    @dark_sky_service ||= DarkSkyService.new
-    @dark_sky_service.get_forecast(latitude, longitude)
+    dark_sky_service.get_forecast(latitude, longitude)
   end
 
   def weather_today
