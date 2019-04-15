@@ -17,22 +17,22 @@ class ForecastFacade < LocationFacade
     Weather.new(weather_data, address)
   end
 
-  def weather_hourly
+  def weather_hourly(limit = 8)
     data = weather_data[:hourly][:data]
     weather_h = []
     count = 0
-    8.times do
+    limit.times do
       weather_h << WeatherHourly.new(data[count], (count + 1))
       count += 1
     end
     return weather_h
   end
 
-  def weather_weekly
+  def weather_weekly(limit = 5)
     data = weather_data[:daily][:data]
     weather_w = []
     count = 1
-    5.times do
+    limit.times do
       weather_w << WeatherWeekly.new(data[count], (count))
       count += 1
     end
