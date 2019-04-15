@@ -8,6 +8,7 @@ describe 'Amypode API' do
     expect(response).to be_successful
 
     antipode = JSON.parse(response.body)
+    # binding.pry
     # result = {"data": [{"id": "1",
     #                     "type": "antipode",
     #                     "attributes": {"location_name": "Antipode City Name",
