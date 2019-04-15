@@ -1,10 +1,14 @@
 class Antipode
   attr_reader :id,
-              :search_location
+              :search_location,
+              :summary,
+              :temp,
+              :location_name
 
   def initialize(data, address)
     @id = data[:id]
-    @forecast = data[:attributes]
+    @summary = data[:summary]
+    @temp = data[:temp]
     @location_name = data[:location].split("/").last.sub("_", " ")
     @search_location = address.capitalize
   end
@@ -15,7 +19,7 @@ class Antipode
   end
 
   def forecast
-    { summary: @forecast[:summary], current_temperature: @forecast[:temperature]}
+    { summary: @summary, current_temperature: @temp}
   end
 
 end
