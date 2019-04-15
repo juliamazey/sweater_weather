@@ -1,11 +1,11 @@
 class AntipodesFacade < LocationFacade
 
   def get_antipodes
-    data = create_data(result_1, result_2)
+    data = create_data
     dark_sky_service.create_antipode(data, @address)
   end
 
-  def create_data(result_1, result_2)
+  def create_data
     data = {}
     data[:id] = result_1[:id]
     data[:summary] = result_2[:currently][:summary]
