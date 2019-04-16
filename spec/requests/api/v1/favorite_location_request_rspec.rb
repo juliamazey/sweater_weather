@@ -56,6 +56,7 @@ describe 'Favorites API' do
 
     expect(response).to be_successful
     fav = JSON.parse(response.body, symbolize_names: true)
+    binding.pry
     expect(fav[:today][:data][0][:attributes][:address]).to_not eq(@user.locations.first.address)
     expect(fav[:today][:data][0][:attributes]).to have_key(:temperature)
   end

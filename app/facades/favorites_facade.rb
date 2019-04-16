@@ -11,6 +11,7 @@ class FavoritesFacade < LocationFacade
 
   def remove_favorite
     Favorite.find_by(user: @user, location: get_location).destroy
+
   end
 
   def all_favorites(user)

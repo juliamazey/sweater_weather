@@ -12,7 +12,8 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def destroy
-    facade = FavoritesFacade.new(@user, favorites_params[:location]).remove_favorite
+    facade = FavoritesFacade.new(@user, favorites_params[:location])
+    facade.remove_favorite
     render json: {today: WeatherTodaySerializer.new(facade.all_favorites(@user))}
   end
 
