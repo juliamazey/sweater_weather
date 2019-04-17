@@ -34,10 +34,9 @@ describe 'Favorites API' do
     expect(response).to be_successful
 
     fav = JSON.parse(response.body, symbolize_names:true)
+    address = fav[:today][:data][0][:attributes][:address].split(",").first.upcase
 
-    address = fav[:today][:data][0][:attributes][:address].split(",").first
-
-    expect(address).to eq(@user.locations.first.address)
+    expect(address).to eq(@user.locations.first.address.upcase)
     expect(fav[:today][:data][0][:attributes]).to have_key(:temperature)
   end
 
