@@ -1,7 +1,9 @@
 class DarkSkyService
 
   def get_forecast(lat, long)
-    JSON.parse(response(lat, long).body, symbolize_names: true)
+    Rails.cache.fetch("forecast_#{lat}_#{long}", expires_in: 1.hour) do
+      JSON.parse(response(lat, long).body, symbolize_names: true)
+    end
   end
 
   def response(lat, long)
